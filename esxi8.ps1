@@ -93,8 +93,7 @@ echo ""
 echo "Creating a custom profile" 
 echo ""
 
-$newProfileName = "$($imageProfile)-custom"
-$newProfile = New-EsxImageProfile -CloneProfile $imageProfile -name $newProfileName -Vendor "Self"
+$newProfile = New-EsxImageProfile -CloneProfile $imageProfile -name "ESXi-8.0U3g-24859861-no-tools-custom" -Vendor "Self"
 Set-EsxImageProfile -ImageProfile $newProfile -AcceptanceLevel CommunitySupported
 
 echo ""
