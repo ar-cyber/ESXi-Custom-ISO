@@ -42,7 +42,7 @@ switch ($choice) {
         if (!(Test-Path $manualUpdate1)){Invoke-WebRequest -Uri $manualUpdateUrl1 -OutFile $($manualUpdate1)}
         Add-EsxSoftwareDepot $manualUpdate1
         Start-Sleep 2
-        $imageProfiles = Get-EsxImageProfile | Where-Object { $_.Name -like "ESXi-$baseESXiVer*-standard*" } | Sort-Object -Property CreationTime -Descending
+        $imageProfiles = Get-EsxImageProfile | Where-Object { $_.Name -like "ESXi-$baseESXiVer*" } | Sort-Object -Property CreationTime -Descending
     }
     
     
@@ -52,7 +52,7 @@ switch ($choice) {
         # Retrieve available image profiles from VMware
         Add-EsxSoftwareDepot https://dl.broadcom.com/$TOKEN/PROD/COMP/ESX_HOST/main/vmw-depot-index.xml
         Start-Sleep 2
-        $imageProfiles = Get-EsxImageProfile | Where-Object { $_.Name -like "ESXi-$baseESXiVer*-standard*" } | Sort-Object -Property CreationTime -Descending
+        $imageProfiles = Get-EsxImageProfile | Where-Object { $_.Name -like "ESXi-$baseESXiVer*" } | Sort-Object -Property CreationTime -Descending
         echo ""
     }
 }
