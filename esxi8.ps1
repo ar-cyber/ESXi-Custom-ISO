@@ -93,8 +93,8 @@ echo ""
 echo "Creating a custom profile" 
 echo ""
 
-$newProfileName = $($imageProfile.Replace("standard", "usbnic"))
-$newProfile = New-EsxImageProfile -CloneProfile $imageProfile -name $newProfileName -Vendor "Itiligent"
+$newProfileName = $($imageProfile.Replace("standard", "usbnic").Replace("no-tools", "usbnic"))
+$newProfile = New-EsxImageProfile -CloneProfile "${$imageProfile}" -name $newProfileName -Vendor "Self"
 Set-EsxImageProfile -ImageProfile $newProfile -AcceptanceLevel CommunitySupported
 
 echo ""
